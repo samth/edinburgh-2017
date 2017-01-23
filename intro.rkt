@@ -15,7 +15,7 @@
                 (lambda () (blank 1024 768))])
 
 (pslide #:go (coord .5 .5 'cc)
-        (scale (bitmap "lausanne.png") 1)
+        (scale (bitmap "edinburgh.png") 1)
         #:next
         #:go (coord 3/4 3/4 'cc)
         (shadow-frame (t/cant "JavaScript" 50)
@@ -36,7 +36,7 @@
                       #:shadow-descent 5))
 
 (pslide #:go (coord .5 .5 'cc)
-        (scale (bitmap "epfl3.png") 1)
+        (scale (bitmap "sicsa.png") 1)
         #:next
         #:go (coord 3/4 2/5 'cc)
         (shadow-frame (t/cant "PHP" 50)

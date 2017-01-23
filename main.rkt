@@ -10,10 +10,10 @@
          "helper.rkt"
          racket/runtime-path (except-in mzlib/etc identity) unstable/gui/slideshow)
 
-(title '("Typed Racket as a research agenda")
+(title '("Typed Racket & Gradual Typing")
        '()
        '(("Sam Tobin-Hochstadt" "Indiana University"))
-       "April 15, 2014    EPFL")
+       "January 24, 2017    LFCS")
 (set-page-numbers-visible! #t)
 (do-start? #f)
 
@@ -57,7 +57,7 @@
 
 (define narrow1 (t/cant "Racket"))
 (define wide1 (t/cant "JavaScript"))
-(define narrow2 (t/cant "Scala"))
+(define narrow2 (t/cant "Haskell"))
 (define wide2 (t/cant "Haskell"))
 (define x-diff1 (- (pict-width wide1) (pict-width narrow1)))
 (define x-diff2 (- (pict-width wide2) (pict-width narrow2)))
@@ -79,13 +79,13 @@
         (t/cant " programs are not secretly ")
         (pict-case
          stage-name #:combine cc-superimpose
-         [(one) (t/cant "Scala")]
+         [(one) (t/cant "Haskell")]
          [(many after) 
           (inset 
            (vc-append (t/cant "Java")
                       (t/cant "ML")
-                      (t/cant "Scala")
                       (t/cant "Haskell")
+                      (t/cant "Scala")
                       (t/cant "C++"))
            (/ x-diff2 -2))])
          (t/cant " programs")
@@ -268,6 +268,21 @@
        (smod #:name "server"
              big-addx))
 
+    (slide/staged
+     [one two three four]
+     #:title (title-t "Proofs and Techniques")
+     (pict-case
+      stage-name       
+       [(one) (para "If the program raises a contract error, the blame is not assigned to a typed module.")]
+       [(two) (para "Well-typed modules can't get blamed.")]
+       [(three) (mini-slide
+                 (para "Allows local reasoning about typed modules, without changing untyped modules.")
+                 (para "Choose how much static checking you want."))]
+       [(four) (mini-slide
+                (para "Closely connected to contract semantics")
+                (para "Proved by showing that all communication is monitored"))]))
+
+
 (slide/staged [one two]
  #:title (titlet "Contracts for vectors")
  (pict-case 
@@ -357,26 +372,13 @@
 (dynamic-require "extensible.rkt" #f)
 
 ;; PLDI + PADL
-
+#;#;#;
 (tslide* "And more ..."
          '("With St-Amour, Dimoulas, Felleisen"
            "[DLS 06, ESOP 12, OOPSLA 12]"))
 
 ;(slide #:title (titlet "Proof Techniques"))
 
-    (slide/staged
-     [one two three four]
-     #:title (title-t "Proofs and Techniques")
-     (pict-case
-      stage-name       
-       [(one) (para "If the program raises a contract error, the blame is not assigned to a typed module.")]
-       [(two) (para "Well-typed modules can't get blamed.")]
-       [(three) (mini-slide
-                 (para "Allows local reasoning about typed modules, without changing untyped modules.")
-                 (para "Choose how much static checking you want."))]
-       [(four) (mini-slide
-                (para "Closely connected to contract semantics")
-                (para "Proved by showing that all communication is monitored"))]))
    
 (require "oc.rkt")
 (do-prng)
