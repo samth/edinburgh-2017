@@ -238,4 +238,4 @@
 (slide #:title (title-t "Lessons")
        (para "Language extensibility makes compilers into libraries")
        (blank 50)
-       (para "See LMS, Scala macros, ..."))
+       #;(para "See LMS, Scala macros, ..."))

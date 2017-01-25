@@ -14,7 +14,7 @@
        '()
        '(("Sam Tobin-Hochstadt" "Indiana University"))
        "January 24, 2017    LFCS")
-(set-page-numbers-visible! #t)
+(set-page-numbers-visible! #f)
 (do-start? #f)
 
 
